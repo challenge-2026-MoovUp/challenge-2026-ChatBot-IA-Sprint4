@@ -1,0 +1,53 @@
+MOOVUP - 3ª SPRINT
+
+Integrantes:
+Matheus Matsushita de Souza - RM570017
+Pedro Amaro Pires - RM570636
+Lucas Leite Carlos - RM571985
+Juan Souza Marques - RM573469
+
+
+1. ORIGEM DOS DADOS
+
+Os dados foram criados em Python para montar uma base fictícia de usuários da MoovUp. Como não foi disponibilizada uma base real de usuários, foram utilizados dados sintéticos para representar situações que poderiam acontecer dentro da plataforma.
+
+
+2. SIGNIFICADO DOS DADOS
+
+id_usuario: número usado para identificar cada usuário.
+
+idade: idade do usuário.
+
+regiao: região onde o usuário está localizado.
+
+transporte_principal: principal transporte público utilizado pelo usuário (mais usado).
+
+frequencia_uso_semana: quantidade de vezes que o usuário utiliza o transporte durante a semana.
+
+pontos_acumulados: quantidade de pontos que o usuário acumulou.
+
+pontos_resgatados: quantidade de pontos que o usuário já utilizou.
+
+bilhetes_resgatados: quantidade de bilhetes resgatados pelo usuário.
+
+acoes_realizadas: quantidade de ações feitas pelo usuário dentro da plataforma (resgatar pontos, registrar viagens etc...).
+
+
+3. QUANTIDADE E QUALIDADE
+
+A base possui 500 usuários. Foram verificadas as informações para conferir se existiam dados faltando ou usuários duplicados. Não foram encontrados valores vazios nem registros duplicados.
+
+
+4. CARACTERÍSTICAS IMPORTANTES
+
+As informações mais importantes para analisar o comportamento dos usuários são a frequência de uso, os pontos acumulados e resgatados, os bilhetes resgatados e a quantidade de ações realizadas.
+
+
+5. LABEL
+
+Foi criado o campo "nivel_engajamento" dividido em três níveis: Baixo, Medio e Alto. Ele representa o quanto o usuário interage com a plataforma.
+
+
+6. OBJETIVO DA IA
+
+A ideia é usar esses dados para entender o comportamento dos usuários e identificar o nível de engajamento de cada um dentro do app MoovUp.
