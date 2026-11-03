@@ -91,8 +91,15 @@ Antes de executar o projeto, certifique-se de ter instalado:
 Instalação das dependências:
 
 ```bash
-pip install pandas scikit-learn joblib flask
+pip install -r requirements.txt
 ```
+
+## Validação funcional
+
+A API foi validada localmente com sucesso. Os endpoints testados responderam corretamente:
+
+- GET / → retorna confirmação do serviço
+- POST /predict → retorna o nível de engajamento previsto para um payload válido
 
 ## Como treinar os modelos
 
