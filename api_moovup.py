@@ -1,9 +1,9 @@
 
-from flask import Flask, request, jsonify
+import flask
 import pandas as pd
 import joblib
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
 dados_modelo = joblib.load("modelo_engajamento.joblib")
 modelo = dados_modelo["modelo"]
@@ -12,17 +12,17 @@ encoder = dados_modelo["encoder"]
 
 @app.route("/", methods=["GET"])
 def inicio():
-    return jsonify({
+    return flask.jsonify({
         "projeto": "MoovUp",
         "mensagem": "API de previsao de engajamento funcionando!"
     })
 
 @app.route("/predict", methods=["POST"])
 def prever():
-    dados = request.get_json(silent=True)
+    dados = flask.request.get_json(silent=True)
 
     if not dados:
-        return jsonify({"erro": "Envie os dados em JSON."}), 400
+        return flask.jsonify({"erro": "Envie os dados em JSON."}), 400
 
     campos_obrigatorios = [
         "idade",
@@ -40,7 +40,7 @@ def prever():
                 if campo not in dados]
 
     if faltando:
-        return jsonify({
+        return flask.jsonify({
             "erro": "Campos ausentes",
             "campos": faltando
         }), 400
@@ -55,7 +55,7 @@ def prever():
     previsao = modelo.predict(entrada)[0]
     nivel = encoder.inverse_transform([previsao])[0]
 
-    return jsonify({
+    return flask.jsonify({
         "projeto": "MoovUp",
         "nivel_engajamento_previsto": str(nivel)
     })
