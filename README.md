@@ -1,120 +1,179 @@
-# MoovUp — Sprint 4 | Inteligência Artificial e Machine Learning
+# MoovUp - IA para Predição de Engajamento
 
-## Sobre o projeto
+## Visão geral
 
-O **MoovUp** é um projeto desenvolvido como parte do Challenge FIAP 2026. Nesta Sprint, o objetivo é aplicar técnicas de Inteligência Artificial e Machine Learning para analisar dados de usuários, identificar níveis de engajamento e realizar previsões de pontos acumulados.
+Este projeto tem como objetivo desenvolver modelos de Machine Learning para prever o nível de engajamento dos usuários da plataforma MoovUp e estimar a quantidade de pontos acumulados com base em diferentes características de uso.
 
-O projeto utiliza uma base de dados com 500 usuários e desenvolve modelos de classificação e regressão.
+A solução inclui:
 
-## Objetivos
+- treinamento de modelos de classificação para identificar o nível de engajamento;
+- treinamento de modelo de regressão para estimar pontos acumulados;
+- API em Flask para fornecer previsões em tempo real;
+- notebook com análise exploratória e desenvolvimento dos modelos.
 
-- Analisar a base de dados dos usuários.
-- Desenvolver modelos de Machine Learning.
-- Classificar usuários de acordo com seu nível de engajamento.
-- Prever a quantidade de pontos acumulados.
-- Avaliar o desempenho dos modelos.
-- Disponibilizar modelos treinados para utilização futura.
+## Integrantes
 
-## Tecnologias utilizadas
+- Matheus Matsushita de Souza - RM570017
+- Pedro Amaro Pires - RM570636
+- Lucas Leite Carlos - RM571985
+- Juan Souza Marques - RM573469
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Flask
-- Joblib
-- Jupyter Notebook
+## Objetivo da IA
 
-## Base de dados
-
-A base utilizada contém 500 registros e 11 colunas, sem valores ausentes.
-
-Entre as informações disponíveis estão:
-
-- Idade
-- Região
-- Transporte principal
-- Frequência de uso semanal
-- Pontos acumulados
-- Pontos resgatados
-- Bilhetes resgatados
-- Ações realizadas
-- Pontuação e nível de engajamento
-
-## Modelos desenvolvidos
-
-### 1. Classificação — Random Forest
-
-Responsável por classificar os usuários em três níveis de engajamento:
+A proposta é analisar o comportamento dos usuários com base em variáveis como idade, região, transporte principal, frequência de uso, pontos acumulados, pontos resgatados, bilhetes resgatados e ações realizadas, para classificar o nível de engajamento em:
 
 - Baixo
 - Médio
 - Alto
 
-**Resultado obtido:**
-- Acurácia: 82%
+Além disso, o projeto também estima a quantidade de pontos que um usuário pode acumular ao longo do tempo.
 
-### 2. Regressão — Gradient Boosting
+## Base de dados
 
-Responsável por estimar a quantidade de pontos acumulados pelos usuários.
+A base utilizada foi criada sinteticamente para representar usuários fictícios da MoovUp. A base possui 500 registros e foi validada para verificar:
 
-Foram testadas diferentes configurações e algoritmos para encontrar o melhor resultado.
+- ausência de dados vazios;
+- ausência de registros duplicados;
+- consistência das features utilizadas.
 
-**Melhor resultado obtido:**
-- MAE: 348,39
-- RMSE: 407,49
-- R²: -0,0477
+Principais colunas:
 
-O resultado indica limitações na capacidade de previsão do modelo, mostrando oportunidades de melhoria na seleção de variáveis e na qualidade dos dados.
+- id_usuario
+- idade
+- regiao
+- transporte_principal
+- frequencia_uso_semana
+- pontos_acumulados
+- pontos_resgatados
+- bilhetes_resgatados
+- acoes_realizadas
+- pontuacao_engajamento
+- nivel_engajamento
+
+## Modelos utilizados
+
+### 1. Modelo de classificação
+
+Utiliza Random Forest Classifier para prever o nível de engajamento do usuário.
+
+### 2. Modelo de regressão
+
+Utiliza Random Forest Regressor para estimar a quantidade de pontos acumulados.
 
 ## Estrutura do projeto
 
-| Arquivo | Descrição |
-|---|---|
-| `MoovUp_Sprint4_Modelos.ipynb` | Notebook com análises, treinamento e avaliação |
-| `base_moovup_500_usuarios.csv` | Base de dados utilizada |
-| `base_moovup.xls` | Base original |
-| `explicacoes.txt` | Explicações sobre os dados |
-| `treinar_modelo.py` | Script de treinamento |
-| `api_moovup.py` | API desenvolvida com Flask |
-| `modelo_engajamento.joblib` | Modelo de classificação |
-| `modelo_engajamento_notebook.joblib` | Modelo de classificação do notebook |
-| `modelo_pontos.joblib` | Modelo de regressão original |
-| `modelo_pontos_notebook.joblib` | Modelo de regressão do notebook |
-| `modelo_pontos_gradient_boosting.joblib` | Melhor modelo de regressão testado |
-
-## Como executar
-
-### 1. Instalar as dependências
-
-```bash
-pip install pandas numpy scikit-learn matplotlib flask joblib xlrd
+```text
+.
+├── api_moovup.py                 # API Flask para previsão de engajamento
+├── treinar_modelo.py            # Script responsável pelo treinamento dos modelos
+├── MoovUp_Sprint4_Modelos.ipynb # Notebook com análise, treino e avaliação
+├── base_moovup_500_usuarios.csv # Base de dados utilizada
+├── modelo_engajamento.joblib    # Modelo treinado de classificação
+├── modelo_pontos.joblib         # Modelo treinado de regressão
+├── modelo_engajamento_notebook.joblib
+├── modelo_pontos_notebook.joblib
+├── modelo_pontos_gradient_boosting.joblib
+├── explicacoes.txt              # Documentação e explicações do projeto
+├── README.md                   # Documentação do repositório
+└── .gitignore                  # Arquivos ignorados pelo Git
 ```
 
-### 2. Executar o notebook
+## Requisitos
 
-Abra o arquivo `MoovUp_Sprint4_Modelos.ipynb` no VS Code ou Jupyter Notebook e execute as células em ordem.
+Antes de executar o projeto, certifique-se de ter instalado:
 
-### 3. Executar a API
+- Python 3.10+
+- pandas
+- scikit-learn
+- joblib
+- Flask
+
+Instalação das dependências:
+
+```bash
+pip install pandas scikit-learn joblib flask
+```
+
+## Como treinar os modelos
+
+Execute o script:
+
+```bash
+python treinar_modelo.py
+```
+
+Esse script:
+
+- carrega a base de dados;
+- prepara as variáveis de entrada;
+- treina o modelo de classificação;
+- treina o modelo de regressão;
+- salva os arquivos `.joblib` com os modelos e metadados.
+
+## Como executar a API
+
+Na raiz do projeto, rode:
 
 ```bash
 python api_moovup.py
 ```
 
-A API será disponibilizada localmente em:
+A API será iniciada em:
 
-`http://127.0.0.1:5000`
+```text
+http://127.0.0.1:5000
+```
 
-## Integrantes
+## Endpoints
 
-- Matheus Matsushita de Souza
-- Pedro Amaro Pires
-- Lucas Leite Carlos
-- Juan Souza Marques
+### GET /
 
-## Projeto acadêmico
+Retorna uma mensagem de confirmação do serviço.
 
-Desenvolvido para o Challenge FIAP 2026 — Sprint 4.
+### POST /predict
 
-**MoovUp | Artificial Intelligence & Chatbot**
+Recebe os dados do usuário em JSON e retorna o nível de engajamento previsto.
+
+Exemplo de requisição:
+
+```json
+{
+  "idade": 29,
+  "regiao": "sul",
+  "transporte_principal": "metro",
+  "frequencia_uso_semana": 5,
+  "pontos_acumulados": 150,
+  "pontos_resgatados": 40,
+  "bilhetes_resgatados": 2,
+  "acoes_realizadas": 12,
+  "pontuacao_engajamento": 80
+}
+```
+
+Exemplo de resposta:
+
+```json
+{
+  "projeto": "MoovUp",
+  "nivel_engajamento_previsto": "Alto"
+}
+```
+
+## Observações
+
+- Os modelos foram treinados com dados sintéticos, então são adequados para demonstração e validação conceitual.
+- O notebook pode ser usado para explorar a base, testar diferentes modelos e ajustar os hiperparâmetros.
+- A API pode ser integrada a aplicações web, chatbots ou dashboards para tomada de decisão em tempo real.
+
+## Resultado esperado
+
+O projeto permite:
+
+- identificar usuários com maior ou menor engajamento;
+- segmentar clientes por comportamento;
+- estimar pontos acumulados para ações de retenção e relacionamento;
+- servir como base para futuras melhorias em recomendação e personalização.
+
+---
+
+Este projeto foi desenvolvido como parte do desafio de IA da Sprint 4 da MoovUp.
