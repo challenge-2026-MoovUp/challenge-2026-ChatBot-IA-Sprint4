@@ -1,20 +1,20 @@
-# MOOVUP — 4ª SPRINT
-## Artificial Intelligence & Chatbot
+MOOVUP — 4ª SPRINT
+Artificial Intelligence & Chatbot
 
-### Integrantes
+Integrantes
 
 - Matheus Matsushita de Souza — RM570017
 - Pedro Amaro Pires — RM570636
 - Lucas Leite Carlos — RM571985
 - Juan Souza Marques — RM573469
 
-### 1. Origem dos dados
+1. Origem dos dados
 
 Os dados foram criados em Python para montar uma base fictícia de usuários da MoovUp. Como não foi disponibilizada uma base real de usuários, foram utilizados dados sintéticos para representar situações que poderiam acontecer dentro da plataforma.
 
 O arquivo utilizado foi `base_moovup_500_usuarios.csv`.
 
-### 2. Significado dos dados
+2. Significado dos dados
 
 - `id_usuario`: identificador de cada usuário.
 - `idade`: idade do usuário.
