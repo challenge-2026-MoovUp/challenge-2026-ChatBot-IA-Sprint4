@@ -28,7 +28,7 @@ O arquivo utilizado foi `base_moovup_500_usuarios.csv`.
 - `pontuacao_engajamento`: pontuação que representa o engajamento do usuário.
 - `nivel_engajamento`: classificação do usuário em Baixo, Médio ou Alto.
 
-### 3. Quantidade e qualidade dos dados
+3. Quantidade e qualidade dos dados
 
 A base possui 500 registros e 11 colunas.
 
