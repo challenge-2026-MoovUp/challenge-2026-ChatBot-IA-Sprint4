@@ -1,53 +1,88 @@
-MOOVUP - 3ª SPRINT
+# MOOVUP — 4ª SPRINT
+## Artificial Intelligence & Chatbot
 
-Integrantes:
-Matheus Matsushita de Souza - RM570017
-Pedro Amaro Pires - RM570636
-Lucas Leite Carlos - RM571985
-Juan Souza Marques - RM573469
+### Integrantes
 
+- Matheus Matsushita de Souza — RM570017
+- Pedro Amaro Pires — RM570636
+- Lucas Leite Carlos — RM571985
+- Juan Souza Marques — RM573469
 
-1. ORIGEM DOS DADOS
+### 1. Origem dos dados
 
 Os dados foram criados em Python para montar uma base fictícia de usuários da MoovUp. Como não foi disponibilizada uma base real de usuários, foram utilizados dados sintéticos para representar situações que poderiam acontecer dentro da plataforma.
 
+O arquivo utilizado foi `base_moovup_500_usuarios.csv`.
 
-2. SIGNIFICADO DOS DADOS
+### 2. Significado dos dados
 
-id_usuario: número usado para identificar cada usuário.
+- `id_usuario`: identificador de cada usuário.
+- `idade`: idade do usuário.
+- `regiao`: região onde o usuário está localizado.
+- `transporte_principal`: principal meio de transporte utilizado.
+- `frequencia_uso_semana`: quantidade de vezes que utiliza o transporte durante a semana.
+- `pontos_acumulados`: quantidade de pontos acumulados.
+- `pontos_resgatados`: quantidade de pontos já utilizados.
+- `bilhetes_resgatados`: quantidade de bilhetes resgatados.
+- `acoes_realizadas`: quantidade de ações realizadas dentro da plataforma.
+- `pontuacao_engajamento`: pontuação que representa o engajamento do usuário.
+- `nivel_engajamento`: classificação do usuário em Baixo, Médio ou Alto.
 
-idade: idade do usuário.
+### 3. Quantidade e qualidade dos dados
 
-regiao: região onde o usuário está localizado.
+A base possui 500 registros e 11 colunas.
 
-transporte_principal: principal transporte público utilizado pelo usuário (mais usado).
+Na validação inicial, não foram encontrados valores vazios nem registros duplicados.
 
-frequencia_uso_semana: quantidade de vezes que o usuário utiliza o transporte durante a semana.
+Os dados foram utilizados para treinar e testar os modelos de Machine Learning.
 
-pontos_acumulados: quantidade de pontos que o usuário acumulou.
+### 4. Modelo 1 — Classificação
 
-pontos_resgatados: quantidade de pontos que o usuário já utilizou.
+Foi desenvolvido um modelo utilizando o algoritmo Random Forest Classifier.
 
-bilhetes_resgatados: quantidade de bilhetes resgatados pelo usuário.
+Seu objetivo é prever o nível de engajamento dos usuários, classificando-os em três categorias: Baixo, Médio e Alto.
 
-acoes_realizadas: quantidade de ações feitas pelo usuário dentro da plataforma (resgatar pontos, registrar viagens etc...).
+O modelo apresentou 82% de acurácia nos dados de teste.
 
+A categoria Alto apresentou o melhor F1-score, com 0,90. A categoria Médio apresentou maior dificuldade de classificação, com F1-score de 0,71.
 
-3. QUANTIDADE E QUALIDADE
+### 5. Modelo 2 — Regressão
 
-A base possui 500 usuários. Foram verificadas as informações para conferir se existiam dados faltando ou usuários duplicados. Não foram encontrados valores vazios nem registros duplicados.
+Foi desenvolvido um modelo para estimar a quantidade de pontos acumulados pelos usuários.
 
+Foram testados três algoritmos: Random Forest, Extra Trees e Gradient Boosting.
 
-4. CARACTERÍSTICAS IMPORTANTES
+O melhor resultado foi obtido pelo Gradient Boosting, com os seguintes resultados:
 
-As informações mais importantes para analisar o comportamento dos usuários são a frequência de uso, os pontos acumulados e resgatados, os bilhetes resgatados e a quantidade de ações realizadas.
+- MAE: 348,39 pontos.
+- RMSE: 407,49 pontos.
+- R²: -0,0477.
 
+Apesar de apresentar o melhor resultado entre os algoritmos testados, o R² negativo demonstra que o modelo ainda possui limitações para realizar previsões precisas.
 
-5. LABEL
+### 6. Análise dos resultados
 
-Foi criado o campo "nivel_engajamento" dividido em três níveis: Baixo, Medio e Alto. Ele representa o quanto o usuário interage com a plataforma.
+O modelo de classificação apresentou um resultado satisfatório, alcançando 82% de acurácia.
 
+Já o modelo de regressão apresentou dificuldades para estimar os pontos acumulados. A análise dos dados mostrou baixa correlação entre as variáveis disponíveis e os pontos acumulados.
 
-6. OBJETIVO DA IA
+Entre as variáveis analisadas pelo Gradient Boosting, pontos resgatados, idade e ações realizadas apresentaram maior importância para as previsões.
 
-A ideia é usar esses dados para entender o comportamento dos usuários e identificar o nível de engajamento de cada um dentro do app MoovUp.
+Como melhoria futura, seria interessante ampliar a base de dados e incluir informações mais relacionadas ao acúmulo de pontos.
+
+### 7. API REST
+
+Foi desenvolvida uma API utilizando Python e Flask para disponibilizar o modelo de classificação.
+
+A API possui duas rotas principais:
+
+- `/`: verifica se a API está funcionando.
+- `/predict`: recebe informações de um usuário em formato JSON e retorna o nível de engajamento previsto pelo modelo.
+
+A API foi testada com sucesso, recebendo os dados e retornando uma previsão de engajamento.
+
+### 8. Objetivo final
+
+O objetivo da MoovUp AI é utilizar Machine Learning para analisar o comportamento dos usuários, identificar seus níveis de engajamento e estimar seus pontos acumulados.
+
+O projeto demonstra a aplicação de modelos de classificação e regressão, além da disponibilização de um modelo por meio de uma API REST.
