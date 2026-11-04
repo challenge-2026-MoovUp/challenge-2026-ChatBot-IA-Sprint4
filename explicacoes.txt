@@ -81,7 +81,7 @@ A API possui duas rotas principais:
 
 A API foi testada com sucesso, recebendo os dados e retornando uma previsão de engajamento.
 
-### 8. Objetivo final
+8. Objetivo final
 
 O objetivo da MoovUp AI é utilizar Machine Learning para analisar o comportamento dos usuários, identificar seus níveis de engajamento e estimar seus pontos acumulados.
 
