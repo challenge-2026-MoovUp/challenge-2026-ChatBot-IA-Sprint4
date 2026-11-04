@@ -60,7 +60,7 @@ O melhor resultado foi obtido pelo Gradient Boosting, com os seguintes resultado
 
 Apesar de apresentar o melhor resultado entre os algoritmos testados, o R² negativo demonstra que o modelo ainda possui limitações para realizar previsões precisas.
 
-### 6. Análise dos resultados
+6. Análise dos resultados
 
 O modelo de classificação apresentou um resultado satisfatório, alcançando 82% de acurácia.
 
