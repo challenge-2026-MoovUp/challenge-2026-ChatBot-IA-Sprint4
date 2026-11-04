@@ -5,7 +5,7 @@ import pandas as pd
 
 modelo = joblib.load("modelo_engajamento_notebook.joblib")
 
-print("===== MOOVUP AI =====")
+print(" MOOVUP AI ")
 print("Vamos analisar o engajamento de um usuário!\n")
 
 idade = int(input("Digite a idade: "))
@@ -35,5 +35,5 @@ usuario = usuario.reindex(columns=modelo.feature_names_in_, fill_value=0)
 
 previsao = modelo.predict(usuario)
 
-print("\n===== RESULTADO =====")
+print("\n RESULTADO ")
 print("Engajamento previsto:", previsao[0])
