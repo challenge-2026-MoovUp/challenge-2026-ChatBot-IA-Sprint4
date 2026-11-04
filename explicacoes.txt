@@ -36,7 +36,7 @@ Na validação inicial, não foram encontrados valores vazios nem registros dupl
 
 Os dados foram utilizados para treinar e testar os modelos de Machine Learning.
 
-### 4. Modelo 1 — Classificação
+4. Modelo 1 — Classificação
 
 Foi desenvolvido um modelo utilizando o algoritmo Random Forest Classifier.
 
