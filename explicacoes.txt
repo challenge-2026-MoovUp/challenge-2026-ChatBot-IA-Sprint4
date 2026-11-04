@@ -46,7 +46,7 @@ O modelo apresentou 82% de acurácia nos dados de teste.
 
 A categoria Alto apresentou o melhor F1-score, com 0,90. A categoria Médio apresentou maior dificuldade de classificação, com F1-score de 0,71.
 
-### 5. Modelo 2 — Regressão
+5. Modelo 2 — Regressão
 
 Foi desenvolvido um modelo para estimar a quantidade de pontos acumulados pelos usuários.
 
